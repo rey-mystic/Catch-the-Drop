@@ -1,0 +1,193 @@
+<script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.555.0",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0"
+  }
+}
+</script>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Catch The Drops</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              main: '#3B82F6',
+              accent: '#EBF400',
+              danger: '#FF4D4D',
+            }
+          }
+        }
+      }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+      /* Neo-Brutalist Custom Styles */
+      :root {
+        --color-main: #3B82F6; /* Electric Blue */
+        --color-accent: #EBF400; /* Electric Yellow */
+        --color-danger: #FF4D4D; /* Red */
+        --color-dark: #121212;
+        --fix-mobile-height: 100dvh;
+      }
+      
+      body {
+        font-family: 'Space Grotesk', sans-serif;
+        background-color: #F3F4F6;
+        background-image: radial-gradient(#000 1px, transparent 1px);
+        background-size: 24px 24px;
+        color: var(--color-dark);
+        overflow-x: hidden;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+
+      /* Dark Mode Global Overrides */
+      .dark body {
+        background-color: #050505;
+        background-image: radial-gradient(#444 1px, transparent 1px);
+        color: #ffffff;
+        --color-dark: #ffffff;
+      }
+
+      .font-mono {
+        font-family: 'JetBrains Mono', monospace;
+      }
+
+      /* Brutalist Shadow Utility - REDUCED SIZE */
+      .brutal-shadow {
+        box-shadow: 3px 3px 0px 0px #000000;
+        transition: all 0.2s ease-in-out;
+      }
+      
+      .dark .brutal-shadow {
+        box-shadow: 3px 3px 0px 0px #ffffff;
+      }
+      
+      .brutal-shadow:hover {
+        transform: translate(1px, 1px);
+        box-shadow: 1px 1px 0px 0px #000000;
+      }
+
+      .dark .brutal-shadow:hover {
+        box-shadow: 1px 1px 0px 0px #ffffff;
+      }
+
+      .brutal-shadow-sm {
+        box-shadow: 2px 2px 0px 0px #000000;
+      }
+
+      .dark .brutal-shadow-sm {
+        box-shadow: 2px 2px 0px 0px #ffffff;
+      }
+
+      .brutal-border {
+        border: 2px solid #000000;
+      }
+      
+      .dark .brutal-border {
+        border-color: #ffffff;
+      }
+
+      /* Animations */
+      @keyframes float {
+        0% { transform: translateY(0px) rotate(0deg); }
+        50% { transform: translateY(-15px) rotate(2deg); }
+        100% { transform: translateY(0px) rotate(0deg); }
+      }
+      
+      .animate-float {
+        animation: float 6s ease-in-out infinite;
+      }
+
+      @keyframes marquee {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+      }
+      
+      .animate-marquee {
+        animation: marquee 60s linear infinite;
+      }
+
+      @keyframes wave {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+      }
+      
+      .animate-wave {
+        animation: wave 15s linear infinite;
+      }
+      
+      .animate-wave-slow {
+        animation: wave 25s linear infinite;
+      }
+
+      @keyframes pulse-slow {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.8; }
+      }
+
+      .animate-pulse-slow {
+        animation: pulse-slow 3s ease-in-out infinite;
+      }
+
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar {
+        width: 10px;
+      }
+      
+      ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-left: 2px solid #000;
+      }
+      
+      .dark ::-webkit-scrollbar-track {
+        background: #121212;
+        border-left: 2px solid #fff;
+      }
+      
+      ::-webkit-scrollbar-thumb {
+        background: #3B82F6;
+        border: 2px solid #000;
+      }
+      
+      .dark ::-webkit-scrollbar-thumb {
+        border: 2px solid #fff;
+      }
+      
+      ::-webkit-scrollbar-thumb:hover {
+        background: #2563EB;
+      }
+
+      /* Utilities */
+      .text-outline {
+        text-shadow: 
+          -1px -1px 0 #000,  
+           1px -1px 0 #000,
+          -1px  1px 0 #000,
+           1px  1px 0 #000;
+      }
+
+      .dark .text-outline {
+        text-shadow: 
+          -1px -1px 0 #fff,  
+           1px -1px 0 #fff,
+          -1px  1px 0 #fff,
+           1px  1px 0 #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
